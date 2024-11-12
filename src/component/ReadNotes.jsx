@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <div className="text-center">
+    <div className="text-center container">
       <h1>My Notes</h1>
 
       {notes.map((note) => (
