@@ -1,11 +1,33 @@
-const BoxReadNote = () => {
+import { useEffect, useState } from "react";
+
+const BoxReadNote = ({ check, nota }) => {
+  const [estatus, setEstatus] = useState("⚠️ Pendiente");
+
+  useEffect(() => {
+    if (check === true) {
+      setEstatus("✅ Completado");
+    }
+  }, []);
+
+  const handledChech = () => {
+    if (check === true) {
+      setEstatus("⚠️ Pendiente");
+    }else{
+      setEstatus("✅ Completado");
+    }
+  }
+
   return (
-    <div className="flex flex-row w-1/2 mx-auto my-8">
-      <div className="bg-red-400 basis-1/4">
-        <i>Icon</i>
+    <div className="flex flex-row mx-auto mt-4">
+      <div className="bg-slate-300 basis-2/4 p-2 font-bold">
+        <h1>{nota}</h1>
       </div>
-      <div className="bg-orange-500 basis-3/4">
-        <h1>Box Read Note</h1>
+      <div
+        className={`${
+          check ? "bg-green-300" : "bg-red-500 text-white"
+        } basis-1/4 py-2 `}
+      >
+        <button className="my-auto" onClick={}>{estatus}</button>
       </div>
     </div>
   );
